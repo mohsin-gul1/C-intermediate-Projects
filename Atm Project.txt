@@ -1,4 +1,4 @@
-#include<iostream>   //Mohsin Gul ATM Project
+#include<iostream>   //Mohsin Gul ATM Project pin of this ATM ia 0001
 #include<conio.h>
 using namespace std;
 int info();     //function for account info
