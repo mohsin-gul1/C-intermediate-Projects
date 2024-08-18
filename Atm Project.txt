@@ -1,0 +1,80 @@
+#include<iostream>   //Mohsin Gul ATM Project
+#include<conio.h>
+using namespace std;
+int info();     //function for account info
+int main()
+{
+    const int pin=0001;  //constant pin set by \mohsin
+    int userpin;
+    int tries=4;
+    int i;
+    int wdraw=1, checkb=2, accntinfo=3, choice, money,balance1=100000; //variables for user
+    cout<<"WELCOME TO J&K BANK"<<endl;
+    for(int m=0; m<=4; m++)
+    {
+    cout<<"***************************"<<endl;  //for Design purpose
+    }
+
+    for(i=1; i<=tries; i++)
+    {
+        cout<<"Enter 4 Digit PIN:";
+        cin>>userpin;
+        if(userpin==pin)
+        {
+            cout<<"Welcome User!"<<endl;
+            cout<<"1: Press 1 for Withdraw money"<<endl;
+            cout<<endl;
+            cout<<"**************************"<<endl;
+            cout<<"2: Press 2 for 'CHECK BALANCE'"<<endl;
+            cout<<endl;
+            cout<<"**************************"<<endl;
+            cout<<"3: Press 3 for ACCOUNT INFO"<<endl;
+            cout<<"Enter Your Choice:"<<endl;
+            cin>>choice;
+            if(choice==wdraw)
+            {
+                cout<<"Enter Amount To Withdraw:";
+                cin>>money;
+                if(money>balance1)
+                {
+                    cout<<"Insufficient Balance! Please Insert your Card Again";
+                }
+                else
+                {
+                    cout<<"Transaction Successful! Balance left: "<<balance1-money;
+                }
+            }
+            else if(choice==checkb)
+            {
+               cout<<"Your Balance is:"<<balance1;
+            }
+            else if(choice==accntinfo)
+            {
+                info();
+            }
+            else
+            {
+                cout<<"Wrong Entry Please Insert the Card Again";
+            }
+
+
+            break;
+        }
+        else{
+               cout<<"Wrong PIN! Please Try Again! "<<tries-i<<".Tries Remaining!"<<endl;
+            }
+            if(i==tries)
+            {
+                cout<<"Limit Exceed! ATM Blocked! Please Visit Your Bank";
+            }
+    }
+    return 0;
+}
+
+int info()
+{
+    int accntnum=0021040200026542, balance=100000; //another balance variable
+    string name="Mohsin Gul", ifsc="JAKA0GANDER", branch="Ganderbal Jammu and Kashmir";
+    cout<<"Account Holder Name:"<<name<<endl<<"Account Number:"<<accntnum<<endl<<"Balance: "<<balance<<endl<<"Branch:"<<branch<<endl<<"IFSC CODE: "<<ifsc;
+
+}
